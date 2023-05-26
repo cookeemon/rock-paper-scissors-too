@@ -1,20 +1,13 @@
-/* 
-- Make a function getComputerChoice() which randomly selects
- between rock paper and scissor and returns the selected.
+const buttons = document.querySelectorAll('button');
+const playerScore = document.querySelector('.playerScore');
+const computerScore = document.querySelector('.computerScore');
+const winner = document.querySelector('.winner');
+console.log(playerScore);
 
-- Make a function getPlayerChoice() which prompts the player
- to select between the 3 options.
-
- - Make a function playRound() that compares the two choices
-  and checks if player lost or won.
-  (e.g. "You Lose! Paper beats Rock." || "You Won! Scissors beats Paper." )
-
-- Make a game() class that loops 5 times until the game is over.
- Declare the winner at the end. (Optional: Make a button to
- restart the game.)
-
-*/
-
+buttons.forEach((button) => {
+    button.addEventListener('click', playRound);
+    
+});
 
 function getComputerChoice() {
     const RPS = ["Rock", "Paper", "Scissors"];
@@ -22,70 +15,91 @@ function getComputerChoice() {
     return RPS[randomChoice];
 }
 
-function getPlayerChoice() {
-    return prompt("Type Rock, Paper, or Scissors");
+function getPlayerChoice(e) {
+    if(e.target.className == 'rockBtn') return 'rock';
+    if(e.target.className == 'paperBtn') return 'paper';
+    if(e.target.className == 'scissorsBtn') return 'scissors';
 }
 
-function playRound() {
-    let computerSelected;
-    let playerSelected;
+const updatePlayerScore = () => {
+    let currScore = parseInt(playerScore.textContent);
+    currScore += 1;
+    playerScore.textContent = currScore;
+    updateWinner();
+}
 
-    console.log(`You Chose: ${playerSelected = getPlayerChoice()}`);
-    console.log(`Computer Chose: ${computerSelected = getComputerChoice()}`);
+const updateComputerScore = () => {
+    let currScore = parseInt(computerScore.textContent);
+    currScore += 1;
+    computerScore.textContent = currScore;
+    updateWinner();
+}
+
+const updateWinner = () => {
+    if (+(playerScore.textContent) == 5) {
+        winner.textContent = 'You Win!' 
+        resetGame();
+        }
+
+    if (+(computerScore.textContent) == 5) {
+        winner.textContent = 'You Lose!'
+        resetGame();
+    }
+}
+
+const resetGame = () => {
+    playerScore.textContent   = 0;
+    computerScore.textContent = 0;
+    winner.textContent        = 'None';
+}
+
+function playRound(e) {
+    let computerSelected = getComputerChoice();
+    let playerSelected   = getPlayerChoice(e);
+
+    console.log(`You Chose: ${playerSelected}`);
+    console.log(`Computer Chose: ${computerSelected}`);
 
     switch (true) {
         
         case (playerSelected.toLowerCase() === computerSelected.toLowerCase()) : {
-            return 0;
+            break;
            }
 
         case (playerSelected.toLowerCase()   === "rock"
            && computerSelected.toLowerCase() === "scissors") : {
-            return 1;
+            updatePlayerScore();
+            break;
            }
         
         case (playerSelected.toLowerCase()     === "scissors"
            && computerSelected.toLowerCase()   === "paper") : {
-            return 1;
+            updatePlayerScore();
+            break;
            }
 
         case (playerSelected.toLowerCase()     === "paper"
            && computerSelected.toLowerCase()   === "rock") : {
-            return 1;
+            updatePlayerScore();
+            break;
            }
         
         case (playerSelected.toLowerCase()     === "scissors"
            && computerSelected.toLowerCase()   === "rock") : {
-            return 2;
+            updateComputerScore();
+            break;
            }
 
         case (playerSelected.toLowerCase()     === "paper"
            && computerSelected.toLowerCase()   === "scissors") : {
-            return 2;
+            updateComputerScore();
+            break;
            }
 
         case (playerSelected.toLowerCase()     === "rock"
            && computerSelected.toLowerCase()   === "paper") : {
-            return 2;
+            updateComputerScore();
+            break;
            }
     }
 }
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    while(playerScore < 5 && computerScore < 5) {
-        let winOrLose = playRound();
-        if      (winOrLose == 1) playerScore++;
-        else if (winOrLose == 2) computerScore++;
-
-        console.log(playerScore);
-        console.log(computerScore);
-    }
-
-    if(playerScore == 5) console.log("Victory!");
-    else console.log("Loser!");
-}
-
-game();
