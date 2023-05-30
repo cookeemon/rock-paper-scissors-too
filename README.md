@@ -1,6 +1,7 @@
 # rock-paper-scissors-too
 
 Assets:
+
 {
     Author: Clker-Free-Vector-Images
     Website: Pixabay.com
