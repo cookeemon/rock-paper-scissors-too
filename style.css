@@ -1,3 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Mali:ital@1&display=swap');
+
 body {
-    background-color: rgb(15, 33, 0);
+    background-color: #27374D;
+    margin: 0;
+    padding: 0;
+    font-family: 'Mali', cursive;
+}
+p {
+    color: #DDE6ED;
+}
+
+h1 {
+    text-align: center;
+    font-size: 72px;
+    font-weight: 900;
+    color: #DDE6ED;
+    padding: 10px;
+    margin: 0px 0px 0px;
+
+}
+
+img {
+    width: 300px;
+    padding: 24px;
+}
+.user-selection-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+.user-selection-container img {
+    padding: 0px;
+    cursor: pointer;
+    margin: 24px 0px 12px;
+}
+.user-selection-container img:hover {
+    opacity: 50%;
+    width: 320px;
+}
+
+.swords-and-score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.swords-and-score-container img {
+    width: 150px;
+    padding: 12px;
+}
+
+.score-container {
+    display: flex;
+    gap: 24px;
+    font-size: 64px;
+    font-weight: 600;
+}
+.player-score,
+.cmp-score{
+    color: #9DB2BF;
+}
+
+.cmp-selection-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.roundResultDisplay {
+    text-align: center;
+    color: #9DB2BF;
+    font-size: 86px;
+    font-weight: 600;
+    margin: 24px;
+}
+
+.try-again {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 92px;
+    justify-content: center;
+    margin-top: 400px;
+}
+
+.try-again p {
+    margin: 24px;
+    width: 700px;
+    text-align: center;
+}
+
+.try-again button {
+    background-color: #27374D;
+    color: #DDE6ED;
+    border: 5px solid #526D82;
+    border-radius: 10px;
+    padding: 32px 60px;
+    margin: 12px;
+    font-size: 24px;
+    font-family: 'Mali', cursive;
+    font-weight: 600;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.try-again button:hover {
+    background-color: #526D82;
+}
+
+.hidden {
+    display: none;
 }

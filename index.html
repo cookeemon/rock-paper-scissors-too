@@ -9,16 +9,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>Player Score:
-        <div class = playerScore>0</div>
+    <div class='game-panel'>
+        <h1>Human Vs. Program</h1>
+        <div class="user-selection-container">
+            <img class="rock"    src="img/rock.png"     alt="A black and white drawn hand signing rock">
+            <img class="paper"   src="img/paper.png"    alt="A black and white drawn hand signing paper">
+            <img class="scissors"src="img/scissors.png" alt="A black and white drawn hand signing scissors">
+        </div>
+        <div class="swords-and-score-container">
+            <div class="score-container">
+                <p>YOU:</p>
+                <p class="player-score">0</p>
+            </div>
+
+            <img src="img/swords.png">
+
+            <div class="score-container">
+                <p>CMP:</p>
+                <p class="cmp-score">0</p>
+            </div>
+            
+        </div>
+        
+        <div class="cmp-selection-container">
+            <img class="hidden rock" src="img/rock.png" alt="A black and white drawn hand signing rock">
+            <img class="hidden paper" src="img/paper.png" alt="A black and white drawn hand signing paper">
+            <img class="hidden scissors" src="img/scissors.png" alt="A black and white drawn hand signing scissors">
+        </div>
+        <p class="roundResultDisplay"></p>
     </div>
-    <div>Computer Score
-        <div class = computerScore>0</div>
+    <div class="hidden try-again">
+        <p></p>
+        <button>Try Again?</button>
     </div>
-    <button class = rockBtn>Rock</button>
-    <button class = paperBtn>Paper</button>
-    <button class = scissorsBtn>Scissors</button>
-    <div class = winner>None</div>
 </body>
 
 <script src="main.js"></script>
