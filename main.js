@@ -53,7 +53,6 @@ userSelection.forEach(image => {
 });
 
 function playerClicked(e) { 
-        console.log('Click')
         stopShuffling();
         stopPlayerClicking();
         const roundResult = playRound(e.target.className);
